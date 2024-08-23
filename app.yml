@@ -8,7 +8,14 @@ metadata:
 appSettings:
   properties:
     defaultData: '{}'
-  actions: {}
+  actions:
+    appLoad:
+      - action: '17244047870500.5843948586976926'
+        paramCode: ''
+        blockPageLoad: false
+        preventDefault: false
+        index: 0
+    appData: []
   gridVersion: 2
   density: compact
 internalType: project
