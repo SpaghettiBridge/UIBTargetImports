@@ -181,21 +181,9 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
-  - id: '17244073828970.25963161141430535'
-    type: customAsyncCode
-    name: code
-    params:
-      - type: asyncCode
-        value: ./code.js
-        valueType: interpolatedValue
-        interpolationType: code
-    level: 0
-    fallthroughError: false
-    isChanged: true
-    paused: false
-  - id: '17244100979370.3862189315606728'
-    type: BULK_CREATE_ENTITY
-    name: create2
+  - id: '17244087009610.9562798534144665'
+    type: LOAD_COLLECTION
+    name: load3
     params:
       - type: datasourceId
         value: Supabase Bridgelink Apps Database
@@ -203,8 +191,36 @@ steps:
       - type: resourceId
         value: public.student_targets
         valueType: string
-      - type: entity
-        value: ./create2-entity.yml
+      - type: filters
+        value:
+          - column: service_id
+            operation: '='
+            value:
+              value: '{{ui.slct_service.value}}'
+          - column: student_id
+            operation: in
+            value:
+              value: '{{ui.select2.value}}'
+          - column: target_cache_id
+            operation: in
+            value:
+              value: '{{ui.tbl_targets.selectedRows.data.map(x=> x.id)}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
         valueType: custom
       - type: customDatabaseName
         value: ''
@@ -218,24 +234,82 @@ steps:
       - type: mapperEnabled
         value: false
         valueType: custom
-    level: 1
+    level: 0
     fallthroughError: false
     isChanged: true
-  - id: '17244106735580.3356627777305423'
-    type: putInStore
-    name: save2
+  - id: '17244088324100.6474615983294325'
+    type: condition
+    name: condition2
     params:
-      - type: name
-        value: '17244106574240.11981348288329174'
-        valueType: string
-      - type: value
-        value: '{{data.createdRowsCount}}'
+      - type: code
+        value: ./condition2.js
         valueType: interpolatedValue
         interpolationType: code
-      - type: producible
-        value: true
+      - type: steps
+        value:
+          - condition: true
+            steps:
+              - id: '17244073828970.25963161141430535'
+                type: customAsyncCode
+                name: code
+                params:
+                  - type: asyncCode
+                    value: ./code.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 0
+                fallthroughError: false
+                isChanged: true
+                paused: false
+              - id: '17244100979370.3862189315606728'
+                type: BULK_CREATE_ENTITY
+                name: create2
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.student_targets
+                    valueType: string
+                  - type: entity
+                    value: ./create2-entity.yml
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+              - id: '17244106735580.3356627777305423'
+                type: putInStore
+                name: save2
+                params:
+                  - type: name
+                    value: '17244106574240.11981348288329174'
+                    valueType: string
+                  - type: value
+                    value: '{{data.createdRowsCount}}'
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+          - condition: false
+            steps: []
         valueType: custom
-    level: 1
+    level: 0
     fallthroughError: false
     isChanged: true
   - id: '17244097374290.41517596204197016'
@@ -294,35 +368,6 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
-  - id: '17244165972640.8523325666309414'
-    type: BULK_CREATE_ENTITY
-    name: create4
-    params:
-      - type: datasourceId
-        value: Supabase Bridgelink Apps Database
-        valueType: string
-      - type: resourceId
-        value: public.student_target_assessments
-        valueType: string
-      - type: entity
-        value: ./create4-entity.yml
-        valueType: custom
-      - type: customDatabaseName
-        value: ''
-        valueType: interpolatedValue
-      - type: successMapper
-        value: ''
-        valueType: interpolatedValue
-      - type: failureMapper
-        value: ''
-        valueType: interpolatedValue
-      - type: mapperEnabled
-        value: false
-        valueType: custom
-    level: 1
-    fallthroughError: false
-    isChanged: true
-    paused: false
   - id: '17244097604840.5674735170392342'
     type: customAsyncCode
     name: code3

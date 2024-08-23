@@ -5,14 +5,10 @@ const result = [];
 
 targets.forEach(target => {
   students.forEach(student => {
-if(student.student_id == target.student_id){
-   result.push({
+    result.push({
       target_id: target.id,        
       ilp_header_id: student.id 
     });
-
-}
- 
   });
 });
 
