@@ -3,17 +3,6 @@ kind: workflow
 name: lu_students
 nameConfigured: true
 steps:
-  - id: '17244136661730.948790013831954'
-    type: customAsyncCode
-    name: code
-    params:
-      - type: asyncCode
-        value: ./code.js
-        valueType: interpolatedValue
-        interpolationType: code
-    level: 0
-    fallthroughError: false
-    isChanged: true
   - id: '17244071640780.9478480661955322'
     type: customSQLQuery
     name: query
