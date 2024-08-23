@@ -5,7 +5,7 @@ nameConfigured: true
 steps:
   - id: '17244075160100.23865296857877594'
     type: LOAD_COLLECTION
-    name: load
+    name: get_ilps
     params:
       - type: datasourceId
         value: Supabase Bridgelink Apps Database
@@ -55,12 +55,13 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
+    nameConfigured: true
   - id: '17244080118720.23030189940676316'
     type: condition
-    name: condition
+    name: check_if_any_missing
     params:
       - type: code
-        value: ./condition.js
+        value: ./check_if_any_missing.js
         valueType: interpolatedValue
         interpolationType: code
       - type: steps
@@ -69,18 +70,19 @@ steps:
             steps:
               - id: '17244080591200.2866831885503156'
                 type: customAsyncCode
-                name: code2
+                name: gen_ilp_records
                 params:
                   - type: asyncCode
-                    value: ./code2.js
+                    value: ./gen_ilp_records.js
                     valueType: interpolatedValue
                     interpolationType: code
                 level: 0
                 fallthroughError: false
                 isChanged: true
+                nameConfigured: true
               - id: '17244102742290.11442505441439943'
                 type: BULK_CREATE_ENTITY
-                name: create3
+                name: create_ilps
                 params:
                   - type: datasourceId
                     value: Supabase Bridgelink Apps Database
@@ -89,7 +91,7 @@ steps:
                     value: public.student_ilp_header
                     valueType: string
                   - type: entity
-                    value: ./create3-entity.yml
+                    value: ./create_ilps-entity.yml
                     valueType: custom
                   - type: customDatabaseName
                     value: ''
@@ -106,9 +108,11 @@ steps:
                 level: 1
                 fallthroughError: false
                 isChanged: true
+                nameConfigured: true
+                paused: false
               - id: '17244106165830.37560166284011953'
                 type: putInStore
-                name: save
+                name: save_count
                 params:
                   - type: name
                     value: '17244105865170.3671068975694447'
@@ -123,15 +127,17 @@ steps:
                 level: 1
                 fallthroughError: false
                 isChanged: true
+                nameConfigured: true
           - condition: false
             steps: []
         valueType: custom
     level: 0
     fallthroughError: false
     isChanged: true
+    nameConfigured: true
   - id: '17244085861170.3373659770423354'
     type: LOAD_COLLECTION
-    name: load2
+    name: get_all_ilps
     params:
       - type: datasourceId
         value: Supabase Bridgelink Apps Database
@@ -181,9 +187,10 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
+    nameConfigured: true
   - id: '17244087009610.9562798534144665'
     type: LOAD_COLLECTION
-    name: load3
+    name: get_existing_student_targets
     params:
       - type: datasourceId
         value: Supabase Bridgelink Apps Database
@@ -213,7 +220,7 @@ steps:
           offset:
             value: ''
           orderBy:
-            value: ''
+            value: created_at
           orderDirection:
             value: asc
         valueType: custom
@@ -226,23 +233,36 @@ steps:
         value: ''
         valueType: interpolatedValue
       - type: successMapper
-        value: ''
+        value: ./get_existing_student_targets-successMapper.js
         valueType: interpolatedValue
       - type: failureMapper
         value: ''
         valueType: interpolatedValue
       - type: mapperEnabled
-        value: false
+        value: true
         valueType: custom
     level: 0
     fallthroughError: false
     isChanged: true
+    nameConfigured: true
+  - id: '17244298063070.3367191889271772'
+    type: customAsyncCode
+    name: check_if_students_already_have_targets
+    params:
+      - type: asyncCode
+        value: ./check_if_students_already_have_targets.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
   - id: '17244088324100.6474615983294325'
     type: condition
-    name: condition2
+    name: check_if_any_targets_missing
     params:
       - type: code
-        value: ./condition2.js
+        value: ./check_if_any_targets_missing.js
         valueType: interpolatedValue
         interpolationType: code
       - type: steps
@@ -289,6 +309,7 @@ steps:
                 level: 1
                 fallthroughError: false
                 isChanged: true
+                paused: false
               - id: '17244106735580.3356627777305423'
                 type: putInStore
                 name: save2
@@ -306,12 +327,15 @@ steps:
                 level: 1
                 fallthroughError: false
                 isChanged: true
+                paused: false
           - condition: false
             steps: []
         valueType: custom
     level: 0
     fallthroughError: false
     isChanged: true
+    nameConfigured: true
+    paused: false
   - id: '17244097374290.41517596204197016'
     type: LOAD_COLLECTION
     name: load4
@@ -357,6 +381,69 @@ steps:
         value: ''
         valueType: interpolatedValue
       - type: successMapper
+        value: ./load4-successMapper.js
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244097604840.5674735170392342'
+    type: customAsyncCode
+    name: code3
+    params:
+      - type: asyncCode
+        value: ./code3.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244290367850.680812531412224'
+    type: LOAD_COLLECTION
+    name: load5
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.join_target_ilps
+        valueType: string
+      - type: filters
+        value:
+          - column: target_id
+            operation: in
+            value:
+              value: '{{steps.code3.data.map(x=> x.target_id)}}'
+          - column: ilp_header_id
+            operation: in
+            value:
+              value: '{{steps.code3.data.map(x=> x.ilp_header_id)}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
         value: ''
         valueType: interpolatedValue
       - type: failureMapper
@@ -368,12 +455,12 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
-  - id: '17244097604840.5674735170392342'
+  - id: '17244292461170.9914604033749417'
     type: customAsyncCode
-    name: code3
+    name: code5
     params:
       - type: asyncCode
-        value: ./code3.js
+        value: ./code5.js
         valueType: interpolatedValue
         interpolationType: code
     level: 0
@@ -419,6 +506,7 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
+    paused: false
   - id: '17244110330120.19102901953952411'
     type: putInStore
     name: save3

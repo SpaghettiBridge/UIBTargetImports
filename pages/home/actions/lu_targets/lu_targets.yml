@@ -3,134 +3,152 @@ kind: workflow
 name: lu_targets
 nameConfigured: true
 steps:
-  - id: '17244056068950.020031207467885448'
-    type: LOAD_ENTITY
-    name: get
+  - id: '17244277535290.06785681690724665'
+    type: condition
+    name: condition
     params:
-      - type: datasourceId
-        value: Supabase Bridgelink Apps Database
-        valueType: string
-      - type: resourceId
-        value: public.curr_map_header
-        valueType: string
-      - type: filters
+      - type: code
+        value: ./condition.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: steps
         value:
-          - column: term_id
-            operation: '='
-            value:
-              value: '{{ui.slct_term.value}}'
-          - column: service_id
-            operation: '='
-            value:
-              value: '{{ui.slct_service.value}}'
-        valueType: custom
-      - type: customDatabaseName
-        value: ''
-        valueType: interpolatedValue
-      - type: successMapper
-        value: ''
-        valueType: interpolatedValue
-      - type: failureMapper
-        value: ''
-        valueType: interpolatedValue
-      - type: mapperEnabled
-        value: false
-        valueType: custom
-    level: 0
-    fallthroughError: false
-    isChanged: true
-  - id: '17244055781330.32711117252911737'
-    type: LOAD_COLLECTION
-    name: load2
-    params:
-      - type: datasourceId
-        value: Supabase Bridgelink Apps Database
-        valueType: string
-      - type: resourceId
-        value: public.curr_map_topics
-        valueType: string
-      - type: filters
-        value:
-          - column: curr_map_header_id
-            operation: '='
-            value:
-              value: '{{data.id}}'
-        valueType: custom
-      - type: ordering
-        value:
-          limit:
-            value: 1000
-          offset:
-            value: ''
-          orderBy:
-            value: ''
-          orderDirection:
-            value: asc
-        valueType: custom
-      - type: additionalParams
-        value:
-          - name: ''
-            value: ''
-        valueType: custom
-      - type: customDatabaseName
-        value: ''
-        valueType: interpolatedValue
-      - type: successMapper
-        value: ./load2-successMapper.js
-        valueType: interpolatedValue
-      - type: failureMapper
-        value: ''
-        valueType: interpolatedValue
-      - type: mapperEnabled
-        value: true
-        valueType: custom
-    level: 0
-    fallthroughError: false
-    isChanged: true
-  - id: '17244056372430.44169199680153004'
-    type: LOAD_COLLECTION
-    name: load
-    params:
-      - type: datasourceId
-        value: Supabase Bridgelink Apps Database
-        valueType: string
-      - type: resourceId
-        value: public.lu_pillar_target_cache
-        valueType: string
-      - type: filters
-        value:
-          - column: topic_id
-            operation: in
-            value:
-              value: '{{data}}'
-        valueType: custom
-      - type: ordering
-        value:
-          limit:
-            value: '10000'
-          offset:
-            value: ''
-          orderBy:
-            value: ''
-          orderDirection:
-            value: asc
-        valueType: custom
-      - type: additionalParams
-        value:
-          - name: ''
-            value: ''
-        valueType: custom
-      - type: customDatabaseName
-        value: ''
-        valueType: interpolatedValue
-      - type: successMapper
-        value: ./load-successMapper.js
-        valueType: interpolatedValue
-      - type: failureMapper
-        value: ''
-        valueType: interpolatedValue
-      - type: mapperEnabled
-        value: true
+          - condition: true
+            steps:
+              - id: '17244056068950.020031207467885448'
+                type: LOAD_ENTITY
+                name: get
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.curr_map_header
+                    valueType: string
+                  - type: filters
+                    value:
+                      - column: term_id
+                        operation: '='
+                        value:
+                          value: '{{ui.slct_term.value}}'
+                      - column: service_id
+                        operation: '='
+                        value:
+                          value: '{{ui.slct_service.value}}'
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 0
+                fallthroughError: false
+                isChanged: true
+              - id: '17244055781330.32711117252911737'
+                type: LOAD_COLLECTION
+                name: load2
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.curr_map_topics
+                    valueType: string
+                  - type: filters
+                    value:
+                      - column: curr_map_header_id
+                        operation: '='
+                        value:
+                          value: '{{data.id}}'
+                    valueType: custom
+                  - type: ordering
+                    value:
+                      limit:
+                        value: 1000
+                      offset:
+                        value: ''
+                      orderBy:
+                        value: ''
+                      orderDirection:
+                        value: asc
+                    valueType: custom
+                  - type: additionalParams
+                    value:
+                      - name: ''
+                        value: ''
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ./load2-successMapper.js
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: true
+                    valueType: custom
+                level: 0
+                fallthroughError: false
+                isChanged: true
+              - id: '17244056372430.44169199680153004'
+                type: LOAD_COLLECTION
+                name: load
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.lu_pillar_target_cache
+                    valueType: string
+                  - type: filters
+                    value:
+                      - column: topic_id
+                        operation: in
+                        value:
+                          value: '{{data}}'
+                    valueType: custom
+                  - type: ordering
+                    value:
+                      limit:
+                        value: '10000'
+                      offset:
+                        value: ''
+                      orderBy:
+                        value: ''
+                      orderDirection:
+                        value: asc
+                    valueType: custom
+                  - type: additionalParams
+                    value:
+                      - name: ''
+                        value: ''
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ./load-successMapper.js
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: true
+                    valueType: custom
+                level: 0
+                fallthroughError: false
+                isChanged: true
+          - condition: false
+            steps: []
         valueType: custom
     level: 0
     fallthroughError: false
