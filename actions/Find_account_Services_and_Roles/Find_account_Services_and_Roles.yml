@@ -1,0 +1,179 @@
+id: '17244047110350.8913338736413017'
+name: Find_account_Services_and_Roles
+nameConfigured: true
+steps:
+  - id: '17244047110350.1450359682651885'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 1
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17244047110350.04764912148991285'
+    type: condition
+    name: condition
+    params:
+      - type: code
+        value: ./condition.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: steps
+        value:
+          - condition: true
+            steps:
+              - id: '17244047110350.6474806726091045'
+                type: customSQLQuery
+                name: query
+                params:
+                  - type: query
+                    value: ./query-query.sql
+                    valueType: interpolatedValue
+                    interpolationType: string
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: custom
+                    mustSelectFirst: true
+                  - type: preparedQuery
+                    value: ./query-preparedQuery.sql
+                    valueType: interpolatedValue
+                  - type: preparedQueryParams
+                    value:
+                      - >-
+                        __UI_BAKERY__FORMAT_IF_DATE__(state.User.email ||
+                        user.email   )
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: stepVersion
+                    value: 2
+                    valueType: custom
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                nameConfigured: true
+              - id: '17244047110350.6488314941133686'
+                type: customAsyncCode
+                name: code2
+                params:
+                  - type: asyncCode
+                    value: ./code2.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                paused: true
+              - id: '17244047110350.5536409466631174'
+                type: putInStore
+                name: Save_Data_To_State
+                params:
+                  - type: name
+                    value: '17244048174920.9618484635484048'
+                    valueType: string
+                  - type: value
+                    value: "\nlet services =[],\n    roles = []\n\tsteps.query.data.map(item => {\n    services.push(item.service_id);\n\t})\n    steps.query.data[0].service_id = services;\n  \n\nreturn steps.query.data[0]"
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                nameConfigured: true
+                paused: false
+              - id: '17244047110350.3556521100822665'
+                type: executeAction
+                name: execute3
+                params:
+                  - type: action
+                    value: '17244048115240.9581968918821462'
+                    valueType: string
+                  - type: isActionsLibraryCall
+                    value: false
+                    valueType: string
+                  - type: customParams
+                    value: ./execute3-customParams.js
+                    valueType: string
+                    interpolationType: code
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+          - condition: false
+            steps: []
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+singleStep: false
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.Find_account_Services_and_Roles.name}}"?
+  showSuccessToast: false
+  successToast: >-
+    Action "{{actions.Find_account_Services_and_Roles.name}}" successfully
+    executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: >-
+    Sorry, your user account has not been found. Please request a login from
+    your Head Teacher or contact IT support through the helpdesk.
+  errorToastDuration: '3000'
+  errorToastHideByClick: true
+  delay: '300'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true
+assigned: false
+selected: false
+configured: true
+actions:
+  success:
+    - action: '17244047077100.3390007797404062'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+    - action: '17244070898170.8453047750193874'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 1
+    - action: '17244117626180.6969680076137899'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 2
+  error: []
+kind: workflow

@@ -1,0 +1,61 @@
+id: '17244076007450.6077493767474809'
+kind: workflow
+name: lu_curr_map
+nameConfigured: true
+steps:
+  - id: '17244076007490.8875307130698105'
+    type: LOAD_ENTITY
+    name: get
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.curr_map_header
+        valueType: string
+      - type: filters
+        value:
+          - column: term_id
+            operation: '='
+            value:
+              value: '{{ui.slct_term.value}}'
+          - column: service_id
+            operation: '='
+            value:
+              value: '{{ui.slct_service.value}}'
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: auto
+modeConfigured: false
+parentPageId: '1'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.lu_curr_map.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.lu_curr_map.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.lu_curr_map.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: true
+selected: true
+configured: true

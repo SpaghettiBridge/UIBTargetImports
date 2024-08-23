@@ -1,0 +1,15 @@
+id: '17244114437670.7751328323258999'
+kind: store_item
+name: head_colour
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: null
+storeItem:
+  value: ''
+  valueType: string
+  initialValue: ''
+  version: 1
+selected: true
+configured: true

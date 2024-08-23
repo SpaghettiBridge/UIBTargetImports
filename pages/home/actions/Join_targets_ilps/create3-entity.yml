@@ -1,0 +1,4 @@
+mode: custom
+valueByMode:
+  custom: '{{data}}'
+  structured: {}

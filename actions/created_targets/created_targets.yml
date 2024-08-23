@@ -1,0 +1,15 @@
+id: '17244106574240.11981348288329174'
+kind: store_item
+name: created_targets
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: null
+storeItem:
+  value: 0
+  valueType: number
+  initialValue: 0
+  version: 1
+selected: true
+configured: true

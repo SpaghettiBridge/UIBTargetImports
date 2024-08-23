@@ -1,0 +1,15 @@
+id: '17244048174920.9618484635484048'
+kind: store_item
+name: account
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: null
+storeItem:
+  value: '[]'
+  valueType: array
+  initialValue: '[]'
+  version: 1
+selected: true
+configured: true

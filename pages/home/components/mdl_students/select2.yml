@@ -1,0 +1,75 @@
+id: '17244070819150.6377955470215821'
+definitionId: selectWithAtomics
+parentSlotId: '17244046620320.8576485658875406'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  options:
+    value:
+      - value: option_1
+        title: ''
+        __UIBAKERY__SYSTEM_ID__: '1'
+      - value: option_2
+        title: ''
+        __UIBAKERY__SYSTEM_ID__: '2'
+    dataValue: '{{actions.lu_students.data}}'
+    withData: true
+  name: select2
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  optionValueKey: student_id
+  showLoading:
+    withData: true
+    dataValue: '{{actions.lu_students.loading}}'
+    value: false
+  multi: true
+  labelConfig:
+    text: ''
+    position: horizontal
+    align: left
+actions: {}
+slots:
+  - id: '17244070819150.9552603103425963'
+    name: optionViewTypes
+    children:
+      - id: '17244072808990.2533821786465209'
+        definitionId: atomicString
+        parentSlotId: '17244070819150.9552603103425963'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString2
+          prop: child_name
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        index: 0
+        slots: []

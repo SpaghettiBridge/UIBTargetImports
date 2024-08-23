@@ -1,0 +1,59 @@
+id: '17244110550790.3998680548591418'
+kind: workflow
+name: reset_Header
+nameConfigured: true
+steps:
+  - id: '17244110580970.9923034929876986'
+    type: putInStore
+    name: save
+    params:
+      - type: name
+        value: '17244110150520.564178745702091'
+        valueType: string
+      - type: value
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244114605550.23980971384798977'
+    type: putInStore
+    name: save2
+    params:
+      - type: name
+        value: '17244114437670.7751328323258999'
+        valueType: string
+      - type: value
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: true
+parentPageId: '1'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.reset_Header.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.reset_Header.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.reset_Header.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '7500'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false
+  autoTrigger: false
+selected: true
+configured: true

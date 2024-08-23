@@ -1,0 +1,1 @@
+UIBakeryEmbedded.emitMessage('appStart');

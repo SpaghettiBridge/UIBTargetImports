@@ -1,0 +1,15 @@
+id: '17244105865170.3671068975694447'
+kind: store_item
+name: created_ilps
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: null
+storeItem:
+  value: 0
+  valueType: number
+  initialValue: 0
+  version: 1
+selected: true
+configured: true

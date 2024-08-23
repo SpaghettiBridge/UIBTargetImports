@@ -1,0 +1,482 @@
+id: '17244073535160.659185031360364'
+kind: workflow
+name: Join_targets_ilps
+nameConfigured: true
+steps:
+  - id: '17244075160100.23865296857877594'
+    type: LOAD_COLLECTION
+    name: load
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.student_ilp_header
+        valueType: string
+      - type: filters
+        value:
+          - column: student_id
+            operation: in
+            value:
+              value: '{{ui.select2.value}}'
+          - column: curr_map_header_id
+            operation: '='
+            value:
+              value: '{{actions.lu_curr_map.data.id}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244080118720.23030189940676316'
+    type: condition
+    name: condition
+    params:
+      - type: code
+        value: ./condition.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: steps
+        value:
+          - condition: true
+            steps:
+              - id: '17244080591200.2866831885503156'
+                type: customAsyncCode
+                name: code2
+                params:
+                  - type: asyncCode
+                    value: ./code2.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 0
+                fallthroughError: false
+                isChanged: true
+              - id: '17244102742290.11442505441439943'
+                type: BULK_CREATE_ENTITY
+                name: create3
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.student_ilp_header
+                    valueType: string
+                  - type: entity
+                    value: ./create3-entity.yml
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+              - id: '17244106165830.37560166284011953'
+                type: putInStore
+                name: save
+                params:
+                  - type: name
+                    value: '17244105865170.3671068975694447'
+                    valueType: string
+                  - type: value
+                    value: '{{data.createdRowsCount}}'
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+          - condition: false
+            steps: []
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244085861170.3373659770423354'
+    type: LOAD_COLLECTION
+    name: load2
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.student_ilp_header
+        valueType: string
+      - type: filters
+        value:
+          - column: student_id
+            operation: in
+            value:
+              value: '{{ui.select2.value}}'
+          - column: curr_map_header_id
+            operation: '='
+            value:
+              value: '{{actions.lu_curr_map.data.id}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244087009610.9562798534144665'
+    type: LOAD_COLLECTION
+    name: load3
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.student_targets
+        valueType: string
+      - type: filters
+        value:
+          - column: service_id
+            operation: '='
+            value:
+              value: '{{ui.slct_service.value}}'
+          - column: student_id
+            operation: in
+            value:
+              value: '{{ui.select2.value}}'
+          - column: target_cache_id
+            operation: in
+            value:
+              value: '{{ui.tbl_targets.selectedRows.data.map(x=> x.id)}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244088324100.6474615983294325'
+    type: condition
+    name: condition2
+    params:
+      - type: code
+        value: ./condition2.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: steps
+        value:
+          - condition: true
+            steps:
+              - id: '17244073828970.25963161141430535'
+                type: customAsyncCode
+                name: code
+                params:
+                  - type: asyncCode
+                    value: ./code.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 0
+                fallthroughError: false
+                isChanged: true
+                paused: false
+              - id: '17244100979370.3862189315606728'
+                type: BULK_CREATE_ENTITY
+                name: create2
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.student_targets
+                    valueType: string
+                  - type: entity
+                    value: ./create2-entity.yml
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+              - id: '17244106735580.3356627777305423'
+                type: putInStore
+                name: save2
+                params:
+                  - type: name
+                    value: '17244106574240.11981348288329174'
+                    valueType: string
+                  - type: value
+                    value: '{{data.createdRowsCount}}'
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+          - condition: false
+            steps: []
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244097374290.41517596204197016'
+    type: LOAD_COLLECTION
+    name: load4
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.student_targets
+        valueType: string
+      - type: filters
+        value:
+          - column: service_id
+            operation: in
+            value:
+              value: '{{ui.slct_service.value}}'
+          - column: student_id
+            operation: in
+            value:
+              value: '{{ui.select2.value}}'
+          - column: target_cache_id
+            operation: in
+            value:
+              value: '{{ui.tbl_targets.selectedRows.data.map(x=> x.id)}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244097604840.5674735170392342'
+    type: customAsyncCode
+    name: code3
+    params:
+      - type: asyncCode
+        value: ./code3.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244073583650.10772419342984119'
+    type: BULK_CREATE_ENTITY
+    name: create
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.join_target_ilps
+        valueType: string
+      - type: entity
+        value: ./create-entity.yml
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+  - id: '17244103677540.530014126942681'
+    type: customAsyncCode
+    name: code4
+    params:
+      - type: asyncCode
+        value: ./code4.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244110330120.19102901953952411'
+    type: putInStore
+    name: save3
+    params:
+      - type: name
+        value: '17244110150520.564178745702091'
+        valueType: string
+      - type: value
+        value: '"Succsefully created targets for selected Students ILp''s"'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17244114745250.683100495883131'
+    type: putInStore
+    name: save4
+    params:
+      - type: name
+        value: '17244114437670.7751328323258999'
+        valueType: string
+      - type: value
+        value: '"40AAB3"'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+parentPageId: '1'
+parentId: null
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.Join_targets_ilps.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.Join_targets_ilps.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.Join_targets_ilps.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false
+selected: true
+configured: true
+actions:
+  success:
+    - action: '17244110550790.3998680548591418'
+      paramCode: ''
+      index: 0

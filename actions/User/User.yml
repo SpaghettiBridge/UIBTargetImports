@@ -1,0 +1,15 @@
+id: '17244047311450.566692815869003'
+kind: store_item
+name: User
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: null
+storeItem:
+  value: '{}'
+  valueType: object
+  initialValue: '{}'
+  version: 1
+selected: true
+configured: true
