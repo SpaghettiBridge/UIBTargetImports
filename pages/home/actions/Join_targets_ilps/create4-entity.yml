@@ -1,0 +1,6 @@
+mode: custom
+valueByMode:
+  custom: >-
+    {{data.map(x=> {return {fk_target_id: x.id, target_completed: "Working
+    Towards"} })}}
+  structured: {}
