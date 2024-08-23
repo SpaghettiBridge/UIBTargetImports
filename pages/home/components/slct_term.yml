@@ -4,7 +4,7 @@ parentSlotId: '2'
 styles:
   xl:
     gridItem:
-      x: 0
+      x: 5
       y: 0
       w: 5
       h: 9
@@ -54,6 +54,7 @@ properties:
     text: Term
     position: horizontal
     align: left
+  value: '{{actions.lu_terms.data[0].term_id}}'
 actions: {}
 slots:
   - id: '17244046521480.07479368660834296'

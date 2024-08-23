@@ -1,0 +1,1 @@
+{{ui.slct_term.value!= null && ui.slct_term.value!= undefined&& ui.slct_term.value!= ""}}

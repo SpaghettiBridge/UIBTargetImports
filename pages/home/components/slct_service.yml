@@ -4,7 +4,7 @@ parentSlotId: '2'
 styles:
   xl:
     gridItem:
-      x: 5
+      x: 0
       y: 0
       w: 5
       h: 9
@@ -53,7 +53,21 @@ properties:
     position: horizontal
     align: left
   value: '{{actions.lu_services.data[0].id}}'
-actions: {}
+actions:
+  selectChange:
+    - action: '17244070898170.8453047750193874'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+    - action: '17244047077100.3390007797404062'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 1
+  init: []
+  focusEvent: []
+  blurEvent: []
 slots:
   - id: '17244117387690.5621215440889329'
     name: optionViewTypes

@@ -36,4 +36,46 @@ jsFile:
         end:
           line: 15
           column: 1
+    - type: function
+      name: filterArrayByMatchingFields
+      start: 360
+      end: 656
+      params:
+        - mainArray
+        - excludeArray
+      loc:
+        start:
+          line: 18
+          column: 0
+        end:
+          line: 25
+          column: 1
+    - type: function
+      name: findUncreatedTargets
+      start: 659
+      end: 1318
+      params:
+        - targets
+        - students
+        - createdTargets
+      loc:
+        start:
+          line: 28
+          column: 0
+        end:
+          line: 49
+          column: 1
+    - type: function
+      name: getOldestRecords
+      start: 1321
+      end: 1894
+      params:
+        - records
+      loc:
+        start:
+          line: 52
+          column: 0
+        end:
+          line: 72
+          column: 1
   valid: true

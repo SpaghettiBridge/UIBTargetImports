@@ -1,1 +1,0 @@
-return {{ui.select2.value.filter(x=> !steps.load.data.map(x=> x.student_id).includes(x ) ).map(x=> {return {student_id: x, curr_map_header_id: actions.lu_curr_map.data.id,status:"Current"} })}}
