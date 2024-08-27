@@ -642,11 +642,11 @@ steps:
         value: '17244110150520.564178745702091'
         valueType: string
       - type: value
-        value: '"Succsefully created targets for selected Students ILp''s"'
+        value: '"Successfully created targets for selected Students ILP''s"'
         valueType: interpolatedValue
         interpolationType: code
       - type: producible
-        value: true
+        value: false
         valueType: custom
     level: 0
     fallthroughError: false
@@ -673,10 +673,10 @@ modeConfigured: false
 parentPageId: '1'
 parentId: null
 config:
-  shouldConfirm: false
+  shouldConfirm: true
   confirmMessage: >-
-    Are you sure you'd like to proceed with
-    "{{actions.Join_targets_ilps.name}}"?
+    Would you like to Add {{ui.tbl_targets.selectedRows.data.length}} Targets to
+    {{ui.select2.value.length }} Students?
   showSuccessToast: false
   successToast: Action "{{actions.Join_targets_ilps.name}}" successfully executed
   successToastDuration: '3000'
@@ -688,6 +688,7 @@ config:
   delay: '0'
   runWhenFirstReferenced: true
   preserveStateOnPageChange: false
+  autoTrigger: false
 selected: true
 configured: true
 actions:
