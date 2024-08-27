@@ -1,1 +1,1 @@
-return {{steps.load4.data.filter(x=> !steps.load.data.map(x=> x.fk_target_id).includes(x.id ) ).map(x=> {return {fk_target_id: x.id, target_completed: "Working Towards"} })}}
+return {{steps.load4.data.filter(x=> !steps.load.data.map(x=> x.fk_target_id).includes(x.id ) ).map(x=> {return {fk_target_id: x.id, target_completed: "Working Towards", updated_at:moment()} })}}
