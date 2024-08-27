@@ -392,6 +392,133 @@ steps:
     level: 0
     fallthroughError: false
     isChanged: true
+  - id: '17247544565660.6636144577973091'
+    type: LOAD_COLLECTION
+    name: load
+    params:
+      - type: datasourceId
+        value: Supabase Bridgelink Apps Database
+        valueType: string
+      - type: resourceId
+        value: public.student_target_assessments
+        valueType: string
+      - type: filters
+        value:
+          - column: fk_target_id
+            operation: in
+            value:
+              value: '{{steps.load4.data.map(x=> x.id)}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: ''
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17247545722400.36824977870715614'
+    type: condition
+    name: check_if_any_targets_missing2
+    params:
+      - type: code
+        value: ./check_if_any_targets_missing2.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: steps
+        value:
+          - condition: true
+            steps:
+              - id: '17247545722400.2554351110317543'
+                type: customAsyncCode
+                name: code2
+                params:
+                  - type: asyncCode
+                    value: ./code2.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 0
+                fallthroughError: false
+                isChanged: true
+                paused: false
+              - id: '17247545722400.5833805252219586'
+                type: BULK_CREATE_ENTITY
+                name: create3
+                params:
+                  - type: datasourceId
+                    value: Supabase Bridgelink Apps Database
+                    valueType: string
+                  - type: resourceId
+                    value: public.student_target_assessments
+                    valueType: string
+                  - type: entity
+                    value: ./create3-entity.yml
+                    valueType: custom
+                  - type: customDatabaseName
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: successMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: failureMapper
+                    value: ''
+                    valueType: interpolatedValue
+                  - type: mapperEnabled
+                    value: false
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                paused: false
+              - id: '17247545722400.5939051267744142'
+                type: putInStore
+                name: save5
+                params:
+                  - type: name
+                    value: '17244106574240.11981348288329174'
+                    valueType: string
+                  - type: value
+                    value: '{{data.createdRowsCount}}'
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                paused: true
+          - condition: false
+            steps: []
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: false
   - id: '17244097604840.5674735170392342'
     type: customAsyncCode
     name: code3
