@@ -53,6 +53,10 @@ properties:
     position: horizontal
     align: left
   value: '{{actions.lu_services.data[0].id}}'
+  allowResetValue:
+    value: false
+    dataValue: 'true'
+    withData: false
 actions:
   selectChange:
     - action: '17244070898170.8453047750193874'
