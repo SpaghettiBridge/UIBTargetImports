@@ -55,6 +55,10 @@ properties:
     position: horizontal
     align: left
   value: '{{actions.lu_terms.data[0].term_id}}'
+  allowResetValue:
+    value: false
+    dataValue: 'true'
+    withData: false
 actions: {}
 slots:
   - id: '17244046521480.07479368660834296'
