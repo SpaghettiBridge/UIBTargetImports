@@ -5,9 +5,9 @@ styles:
   xl:
     gridItem:
       x: 0
-      y: 9
+      y: 18
       w: 24
-      h: 274
+      h: 273
     flex:
       size:
         widthValue: 500
@@ -51,7 +51,70 @@ properties:
         }
       ]
     withData: false
-  data: '{{actions.lu_targets.data}}'
+  data: |-
+    // {{actions.lu_targets.data}};
+
+    // Create an object to store the filter conditions
+    var filters = {};
+
+    // Check if 'ui' exists and use destructuring to extract required properties
+    if (ui) {
+      const { flt_target, flt_topic, flt_level } = ui;
+
+      // Reduce the filter conditions into the 'filters' object
+      const filterConditions = [
+    //     { key: 'target', value: flt_target?.value },
+        { key: 'topic_id', value: flt_topic?.value },
+        { key: 'level', value: flt_level?.value },
+      ];
+
+      console.log(filterConditions);
+
+      filters = filterConditions.reduce((result, condition) => {
+        if (condition.value !== undefined && condition.value !== null && condition.value !== '' && condition.value.length !== 0) {
+          result[condition.key] = condition.value;
+        }
+        return result;
+      }, {});
+    }
+
+    console.log(filters);
+
+    // Apply the filters and map the results
+    let output = [];
+    let inputData = actions.lu_targets;
+
+    if (actions && inputData && inputData.data !== null) {
+      output = inputData.data
+        .filter((c) => {
+    //       Apply standard filters
+          for (const key in filters) {
+            if (Array.isArray(filters[key])) {
+              if (!filters[key].includes(c[key])) {
+                return false;
+              }
+            } else {
+              if (c[key] !== filters[key]) {
+                return false;
+              }
+            }
+          }
+
+          // Apply text containment filter
+          if (ui.flt_target.value) {
+            const text = ui.flt_target.value.toLowerCase();
+            const title = c.target?.toLowerCase() || '';
+
+            if (!title.includes(text)) {
+              return false;
+            }
+          }
+
+          return true;
+        });
+    }
+
+    return output;
   name: tbl_targets
   __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
     - xl
@@ -112,7 +175,7 @@ slots:
             - xs
           width: 998
           widthMode: auto
-          filter: true
+          filter: false
         actions: {}
         index: 1
         slots: []
@@ -128,7 +191,7 @@ slots:
           __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
             - xl
             - xs
-          filter: true
+          filter: false
           widthMode: auto
         index: 3
         slots: []

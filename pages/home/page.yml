@@ -28,3 +28,6 @@ slots:
               - components/mdl_students/mdl_students.yml
               - components/Notifcation_display.yml
               - components/slct_service.yml
+              - components/flt_topic.yml
+              - components/flt_target.yml
+              - components/flt_level.yml

@@ -1,0 +1,46 @@
+id: '17290849334580.26027631827019415'
+definitionId: stringEdit
+parentSlotId: '2'
+styles:
+  xl:
+    gridItem:
+      x: 20
+      y: 9
+      w: 4
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 152
+      w: 24
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: flt_level
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  labelConfig:
+    text: Level
+    position: horizontal
+    align: left
+  iconPlacement: start
+  icon:
+    value: funnel
+    dataValue: star-outline
+    withData: false
+actions: {}
+slots: []
