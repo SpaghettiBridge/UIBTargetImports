@@ -68,11 +68,11 @@ slots:
             visible: true
         properties:
           name: atomicString7
-          prop: topic
+          prop: display
           primaryKey: true
           __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
             - xl
             - xs
-          mappedValue: '{{row.pillar}} : {{value}}'
+          mappedValue: ''
         index: 0
         slots: []

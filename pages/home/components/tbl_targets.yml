@@ -173,8 +173,8 @@ slots:
           __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
             - xl
             - xs
-          width: 998
-          widthMode: auto
+          width: 864
+          widthMode: fixed
           filter: false
         actions: {}
         index: 1
@@ -208,7 +208,9 @@ slots:
             - xs
           width: 277
           widthMode: auto
-          mappedValue: '{{actions.lu_topics.data.filter(x=> x.id == row.topic_id)[0].topic}}'
+          mappedValue: >-
+            {{actions.lu_topics.data.filter(x=> x.id ==
+            row.topic_id)[0].display}}
           filter: false
           title: Topic
         actions: {}

@@ -3,38 +3,30 @@ kind: workflow
 name: lu_topics
 nameConfigured: true
 steps:
-  - id: '17244060761370.23703469152040535'
-    type: LOAD_COLLECTION
-    name: load
+  - id: '17290870610510.7301003338648477'
+    type: customSQLQuery
+    name: query
     params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
       - type: datasourceId
         value: Supabase Bridgelink Apps Database
         valueType: string
-      - type: resourceId
-        value: public.lu_pillar_topic_cache
-        valueType: string
-      - type: filters
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
         value: []
-        valueType: custom
-      - type: ordering
-        value:
-          limit:
-            value: 1000
-          offset:
-            value: ''
-          orderBy:
-            value: topic
-          orderDirection:
-            value: asc
-        valueType: custom
-      - type: additionalParams
-        value:
-          - name: ''
-            value: ''
         valueType: custom
       - type: customDatabaseName
         value: ''
         valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
       - type: successMapper
         value: ''
         valueType: interpolatedValue
