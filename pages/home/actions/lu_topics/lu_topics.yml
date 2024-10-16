@@ -9,16 +9,13 @@ steps:
     params:
       - type: datasourceId
         value: Supabase Bridgelink Apps Database
-        valueType: custom
-        mustSelectFirst: true
+        valueType: string
       - type: resourceId
         value: public.lu_pillar_topic_cache
-        valueType: custom
-        mustSelectFirst: true
+        valueType: string
       - type: filters
         value: []
         valueType: custom
-        interpolationType: string
       - type: ordering
         value:
           limit:
@@ -26,32 +23,30 @@ steps:
           offset:
             value: ''
           orderBy:
-            value: ''
+            value: topic
           orderDirection:
             value: asc
         valueType: custom
-        interpolationType: string
       - type: additionalParams
-        value: []
+        value:
+          - name: ''
+            value: ''
         valueType: custom
-        interpolationType: string
       - type: customDatabaseName
         value: ''
         valueType: interpolatedValue
       - type: successMapper
         value: ''
         valueType: interpolatedValue
-        interpolationType: code
       - type: failureMapper
         value: ''
         valueType: interpolatedValue
-        interpolationType: code
       - type: mapperEnabled
         value: false
         valueType: custom
     level: 0
     fallthroughError: false
-    isChanged: false
+    isChanged: true
 mode: manual
 modeConfigured: false
 parentPageId: '1'

@@ -1,0 +1,78 @@
+id: '17290849113610.17169833921109334'
+definitionId: selectWithAtomics
+parentSlotId: '2'
+styles:
+  xl:
+    gridItem:
+      x: 12
+      y: 9
+      w: 8
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 134
+      w: 24
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  options:
+    value:
+      - value: option_1
+        title: ''
+        __UIBAKERY__SYSTEM_ID__: '1'
+      - value: option_2
+        title: ''
+        __UIBAKERY__SYSTEM_ID__: '2'
+    dataValue: >-
+      {{actions.lu_topics.data.filter(x=> actions.lu_targets.data.map(c=>
+      c.topic_id).includes(x.id))}}
+    withData: true
+  name: flt_topic
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  optionValueKey: id
+  showLoading:
+    withData: true
+    dataValue: '{{actions.lu_topics.loading}}'
+    value: false
+  labelConfig:
+    text: Topic
+    position: horizontal
+    align: left
+  multi: true
+actions: {}
+slots:
+  - id: '17290849113610.45886622892670204'
+    name: optionViewTypes
+    children:
+      - id: '17290859446640.2235913978669244'
+        definitionId: atomicString
+        parentSlotId: '17290849113610.45886622892670204'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString7
+          prop: topic
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          mappedValue: '{{row.pillar}} : {{value}}'
+        index: 0
+        slots: []
