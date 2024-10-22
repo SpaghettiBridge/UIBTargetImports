@@ -1,0 +1,15 @@
+id: '17296071919030.6745236421355465'
+kind: store_item
+name: selected_Rows
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '1'
+storeItem:
+  value: '[]'
+  valueType: array
+  initialValue: '[]'
+  version: 1
+selected: true
+configured: true

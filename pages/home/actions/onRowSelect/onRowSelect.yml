@@ -1,0 +1,50 @@
+id: '17296071679040.19910162410692123'
+kind: workflow
+name: onRowSelect
+nameConfigured: true
+steps:
+  - id: '17296071746930.9760260259404898'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17296071899610.30629106981628285'
+    type: putInStore
+    name: save
+    params:
+      - type: name
+        value: '17296071919030.6745236421355465'
+        valueType: string
+      - type: value
+        value: '{{data}}'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: true
+parentPageId: '1'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.onRowSelect.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.onRowSelect.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.onRowSelect.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false

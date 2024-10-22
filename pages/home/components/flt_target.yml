@@ -42,5 +42,6 @@ properties:
     value: funnel
     dataValue: star-outline
     withData: false
+  __UIBAKERY__SHOW__CONDITION__CODE__: 'false'
 actions: {}
 slots: []
