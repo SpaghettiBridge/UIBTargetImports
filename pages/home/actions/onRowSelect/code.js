@@ -1,0 +1,1 @@
+return {{ui.tbl_targets.selectedRows.data}};
