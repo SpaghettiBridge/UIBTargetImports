@@ -1,9 +1,9 @@
-id: '17244053882370.545431524074248'
+id: '17296844603960.4632454068942553'
 kind: workflow
 name: lu_targets
 nameConfigured: true
 steps:
-  - id: '17244277535290.06785681690724665'
+  - id: '17296844603960.4091529295315437'
     type: condition
     name: condition
     params:
@@ -15,7 +15,7 @@ steps:
         value:
           - condition: true
             steps:
-              - id: '17244056068950.020031207467885448'
+              - id: '17296844603960.17487921702117304'
                 type: LOAD_ENTITY
                 name: get
                 params:
@@ -51,7 +51,7 @@ steps:
                 level: 0
                 fallthroughError: false
                 isChanged: true
-              - id: '17244055781330.32711117252911737'
+              - id: '17296844603960.23565894001305088'
                 type: LOAD_COLLECTION
                 name: load2
                 params:
@@ -99,7 +99,7 @@ steps:
                 level: 0
                 fallthroughError: false
                 isChanged: true
-              - id: '17296082040590.7768267403251008'
+              - id: '17296844603960.6733774826620451'
                 type: customSQLQuery
                 name: query
                 params:

@@ -173,9 +173,9 @@ properties:
     - xs
   title: Targets
   showLoading:
-    withData: true
-    dataValue: '{{actions.lu_targets.loading}}'
     value: false
+    dataValue: '{{actions.lu_targets.loading}}'
+    withData: true
   multiplyRowSelection:
     value: true
     dataValue: 'false'
