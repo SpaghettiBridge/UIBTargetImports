@@ -27,7 +27,7 @@ steps:
       - type: ordering
         value:
           limit:
-            value: 1000
+            value: ''
           offset:
             value: ''
           orderBy:
@@ -159,7 +159,7 @@ steps:
       - type: ordering
         value:
           limit:
-            value: 1000
+            value: ''
           offset:
             value: ''
           orderBy:
@@ -216,7 +216,7 @@ steps:
       - type: ordering
         value:
           limit:
-            value: 1000
+            value: ''
           offset:
             value: ''
           orderBy:
@@ -364,7 +364,7 @@ steps:
       - type: ordering
         value:
           limit:
-            value: 1000
+            value: ''
           offset:
             value: ''
           orderBy:
@@ -412,7 +412,7 @@ steps:
       - type: ordering
         value:
           limit:
-            value: 1000
+            value: ''
           offset:
             value: ''
           orderBy:
@@ -554,7 +554,7 @@ steps:
       - type: ordering
         value:
           limit:
-            value: 1000
+            value: ''
           offset:
             value: ''
           orderBy:

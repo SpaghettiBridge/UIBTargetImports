@@ -1,10 +1,10 @@
 metadata:
   favicon: ''
-  code: ''
   title: ILP Bulk Targets
   description: ''
   breakpoints: []
   rendererCachingEnabled: true
+  skipDepsComparisonInCompilerCache: false
 appSettings:
   properties:
     defaultData: '{}'

@@ -75,5 +75,10 @@ slots:
             - xl
             - xs
           mappedValue: ''
+          forceEditSubmitTriggers:
+            - enter
+          labelConfig:
+            align: left
+            position: vertical
         index: 0
         slots: []
