@@ -187,12 +187,15 @@ properties:
   selectedRowIndex: ''
   heightMode: auto
   limit: '25'
-  showFilter: true
   rowHeight: dynamic
   triggerRowSelectOnInit:
     value: false
     dataValue: 'false'
     withData: false
+  showFilter:
+    withData: false
+    dataValue: 'false'
+    value: true
 actions:
   smartTableRowSelect: []
   uiOnCellChangeTrigger: []
@@ -228,6 +231,11 @@ slots:
           width: 120
           widthMode: auto
           filter: true
+          forceEditSubmitTriggers:
+            - enter
+          labelConfig:
+            align: left
+            position: vertical
         index: 0
         slots: []
       - id: '17244059391500.41037913227096245'
@@ -246,6 +254,11 @@ slots:
           width: 864
           widthMode: fixed
           filter: true
+          forceEditSubmitTriggers:
+            - blur
+          labelConfig:
+            align: left
+            position: vertical
         actions: {}
         index: 1
         slots: []
@@ -263,6 +276,11 @@ slots:
             - xs
           filter: true
           widthMode: auto
+          forceEditSubmitTriggers:
+            - enter
+          labelConfig:
+            align: left
+            position: vertical
         index: 3
         slots: []
       - id: '17244060329170.8864140858450082'
@@ -285,5 +303,10 @@ slots:
           filter: true
           widthMode: auto
           width: 277
+          forceEditSubmitTriggers:
+            - blur
+          labelConfig:
+            align: left
+            position: vertical
         index: 2
         slots: []
