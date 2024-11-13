@@ -8,7 +8,8 @@ targets.forEach(target => {
     if(student.student_id == target.student_id){
  result.push({
       target_id: target.id,        
-      ilp_header_id: student.id 
+      ilp_header_id: student.id, 
+   		app: "Base Target Import"         
     });
 }
    
