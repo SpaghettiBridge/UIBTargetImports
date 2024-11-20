@@ -1,0 +1,15 @@
+id: '17321153224110.9484251116254325'
+kind: store_item
+name: is_processing
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: null
+storeItem:
+  value: false
+  valueType: boolean
+  initialValue: false
+  version: 1
+selected: true
+configured: true

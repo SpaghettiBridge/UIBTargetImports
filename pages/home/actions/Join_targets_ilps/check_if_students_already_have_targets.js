@@ -1,1 +1,1 @@
-return findUncreatedTargets(ui.tbl_targets.selectedRows.data, steps.get_all_ilps.data, steps.get_existing_student_targets.data);
+return findUncreatedTargets(steps.selected_targets.data, steps.get_all_ilps.data, steps.get_existing_student_targets.data);

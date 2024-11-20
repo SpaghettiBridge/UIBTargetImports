@@ -57,6 +57,10 @@ properties:
     value: false
     dataValue: 'true'
     withData: false
+  disabled:
+    value: false
+    dataValue: '{{state.is_processing}}'
+    withData: true
 actions:
   selectChange:
     - action: '17244070898170.8453047750193874'
