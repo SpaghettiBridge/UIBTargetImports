@@ -59,6 +59,10 @@ properties:
     value: false
     dataValue: 'true'
     withData: false
+  disabled:
+    value: false
+    dataValue: '{{state.is_processing}}'
+    withData: true
 actions: {}
 slots:
   - id: '17244046521480.07479368660834296'

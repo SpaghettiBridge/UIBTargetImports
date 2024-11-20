@@ -3,6 +3,35 @@ kind: workflow
 name: Join_targets_ilps
 nameConfigured: true
 steps:
+  - id: '17321155787710.5502921732305299'
+    type: customAsyncCode
+    name: selected_targets
+    params:
+      - type: asyncCode
+        value: ./selected_targets.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+  - id: '17321153653980.3876191359263288'
+    type: putInStore
+    name: save
+    params:
+      - type: name
+        value: '17321153224110.9484251116254325'
+        valueType: string
+      - type: value
+        value: 'true'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
   - id: '17244075160100.23865296857877594'
     type: LOAD_COLLECTION
     name: get_ilps
@@ -211,7 +240,7 @@ steps:
           - column: target_cache_id
             operation: in
             value:
-              value: '{{ui.tbl_targets.selectedRows.data.map(x=> x.id)}}'
+              value: '{{steps.selected_targets.data.map(x=> x.id)}}'
         valueType: custom
       - type: ordering
         value:
@@ -359,7 +388,7 @@ steps:
           - column: target_cache_id
             operation: in
             value:
-              value: '{{ui.tbl_targets.selectedRows.data.map(x=> x.id)}}'
+              value: '{{steps.selected_targets.data.map(x=> x.id)}}'
         valueType: custom
       - type: ordering
         value:
@@ -660,6 +689,23 @@ steps:
         valueType: string
       - type: value
         value: '"40AAB3"'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: producible
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17321154179590.054713148744076845'
+    type: putInStore
+    name: save6
+    params:
+      - type: name
+        value: '17321153224110.9484251116254325'
+        valueType: string
+      - type: value
+        value: 'false'
         valueType: interpolatedValue
         interpolationType: code
       - type: producible

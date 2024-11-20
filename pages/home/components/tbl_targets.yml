@@ -196,6 +196,10 @@ properties:
     withData: false
     dataValue: 'false'
     value: true
+  disableRowSelection:
+    value: false
+    dataValue: '{{state.is_processing}}'
+    withData: true
 actions:
   smartTableRowSelect: []
   uiOnCellChangeTrigger: []

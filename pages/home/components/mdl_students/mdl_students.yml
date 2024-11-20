@@ -34,6 +34,10 @@ properties:
     - xl
     - xs
   buttonText: Select Students
+  buttonDisabled:
+    value: false
+    dataValue: '{{state.is_processing}}'
+    withData: true
 actions: {}
 slots:
   - id: '17244046620320.6529541879586376'
