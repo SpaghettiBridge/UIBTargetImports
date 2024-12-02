@@ -52,7 +52,7 @@ properties:
     text: Service
     position: horizontal
     align: left
-  value: '{{actions.lu_services.data[0].id}}'
+  value: ''
   allowResetValue:
     value: false
     dataValue: 'true'
