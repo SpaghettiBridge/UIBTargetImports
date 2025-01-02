@@ -728,7 +728,9 @@ config:
   successToastDuration: '3000'
   successToastHideByClick: false
   showErrorToast: true
-  errorToast: Action "{{actions.Join_targets_ilps.name}}" has failed
+  errorToast: >-
+    One or more of the targets you have selected have topics that are not part
+    of the selected ILp, please review and try again
   errorToastDuration: '3000'
   errorToastHideByClick: false
   delay: '0'
