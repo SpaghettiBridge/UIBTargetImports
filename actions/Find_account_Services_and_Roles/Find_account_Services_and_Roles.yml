@@ -160,20 +160,10 @@ selected: false
 configured: true
 actions:
   success:
-    - action: '17244047077100.3390007797404062'
-      paramCode: ''
-      blockPageLoad: false
-      preventDefault: false
-      index: 0
-    - action: '17244070898170.8453047750193874'
-      paramCode: ''
-      blockPageLoad: false
-      preventDefault: false
-      index: 1
     - action: '17244117626180.6969680076137899'
       paramCode: ''
       blockPageLoad: false
       preventDefault: false
-      index: 2
+      index: 0
   error: []
 kind: workflow
