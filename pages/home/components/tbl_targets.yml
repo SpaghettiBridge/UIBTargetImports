@@ -285,7 +285,7 @@ slots:
           labelConfig:
             align: left
             position: vertical
-        index: 3
+        index: 4
         slots: []
       - id: '17244060329170.8864140858450082'
         definitionId: atomicText
@@ -313,4 +313,16 @@ slots:
             align: left
             position: vertical
         index: 2
+        slots: []
+      - id: '17368514861640.020356758555748478'
+        definitionId: atomicString
+        parentSlotId: '17244046566560.7510607580618545'
+        styles: {}
+        properties:
+          name: atomicString6
+          prop: category
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        index: 3
         slots: []
