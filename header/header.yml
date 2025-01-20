@@ -1,0 +1,40 @@
+id: '17373728098940.31311727882780294'
+name: content
+children:
+  - id: '17373728098970.4978551696753071'
+    definitionId: layoutHeader
+    parentSlotId: '17373728098940.31311727882780294'
+    styles:
+      xl:
+        backgroundColor:
+          value: default
+          dataValue: "{{\n\nswitch(app.env) {\n  case \"dev\":\n    return \"8F5CFF\"\n    // code block\n    break;\n  case \"staging\":\n    return \"E8BA06\"\n    // code block\n    break;\n  default:\n\treturn \"FFFFFF\"\n}\n\n}}"
+          withData: true
+    properties:
+      name: layoutHeader
+      __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+        - xl
+        - xs
+      stickyHeader:
+        value: true
+        dataValue: 'false'
+        withData: false
+      __UIBAKERY__SHOW__CONDITION__CODE__: '{{app.env != "prod"}}'
+      containerStyles:
+        withData: false
+        dataValue: |-
+          {
+            padding: 'default',
+            shadow: 'default',
+            border: 'none'
+          }
+        value:
+          padding: none
+          shadow: none
+          border: none
+      minRow: '5'
+    index: 0
+    slots:
+      - id: '17373728098970.9556958427162312'
+        name: content
+        children: []
